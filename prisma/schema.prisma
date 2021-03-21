@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:postgres@localhost:5433/mydb?schema=public"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["createMany"]
+}
+
+model Product {
+  id       String @id @default(uuid())
+  name     String @db.VarChar(255) @unique
+  quantity Int
+  price    Float
+}
+
+model Order {
+  id        Int       @id @default(autoincrement())
+  products  Json[]
+  total     Float
+  createdAt DateTime  @default(now())
+}

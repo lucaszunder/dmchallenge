@@ -1,0 +1,46 @@
+{
+  "name": "dm-backend-challenge",
+  "version": "1.0.0",
+  "description": "This is a project to Delivery Much backend developer challenge.",
+  "main": "index.js",
+  "author": "Lucas Zunder <lucas.zunder@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
+    "start": "node --inspect dist/shared/infra/http/server.js",
+    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --respawn --trace-warnings --ignore-watch node_modules src/shared/infra/http/server.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@prisma/client": "2.19.0",
+    "csv-parser": "^3.0.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.21",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-import-helpers": "^1.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "prisma": "2.19.0",
+    "ts-node-dev": "^1.1.6",
+    "tsconfig-paths": "^3.9.0",
+    "tscpaths": "^0.0.9",
+    "typescript": "^4.2.3"
+  }
+}
