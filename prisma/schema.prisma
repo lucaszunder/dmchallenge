@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:postgres@localhost:5433/mydb?schema=public"
+  url      = "postgresql://postgres:postgres@host.docker.internal:5433/mydb?schema=public"
 }
 
 generator client {

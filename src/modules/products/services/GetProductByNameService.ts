@@ -1,16 +1,11 @@
 import AppError from '@shared/errors/AppError';
 
-import { Product } from '.prisma/client';
-
-import ProductRepository from '../infra/prisma/repositories/ProductRepository';
-
-interface IRequest {
-  name: string;
-}
+import IProductRepository from '../repositories/models/IProductRepository'
+import { IProduct } from '../interfaces/IProduct';
 
 export default class GetProductByNameService {
-  constructor(private productRepository: ProductRepository) {}
-  async execute({ name }: IRequest): Promise<Product> {
+  constructor(private productRepository: IProductRepository) {}
+  async execute(name: string): Promise<IProduct> {
     const product = await this.productRepository.getByName(name);
 
     if (!product) {

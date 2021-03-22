@@ -12,7 +12,7 @@ export default class ProductController {
     const productRepository = new ProductRepository();
     const getProductService = new GetProductByNameService(productRepository);
 
-    const product = await getProductService.execute({ name });
+    const product = await getProductService.execute(name);
 
     return response.json(product);
   }

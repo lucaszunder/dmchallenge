@@ -7,7 +7,7 @@ describe('GetProductByName', () => {
     const fakeProductRepository = new FakeProductRepository();
     const getProduct = new GetProductByNameService(fakeProductRepository);
 
-    const product = await getProduct.execute({ name: 'Angelica' });
+    const product = await getProduct.execute('Angelica');
 
     expect(product).toHaveProperty('id');
     expect(product.price).toBe(5.6);
@@ -17,6 +17,6 @@ describe('GetProductByName', () => {
     const fakeProductRepository = new FakeProductRepository();
     const getProduct = new GetProductByNameService(fakeProductRepository);
 
-    expect(getProduct.execute({ name: 'ola' })).rejects.toBeInstanceOf(AppError);
+    expect(getProduct.execute('ola')).rejects.toBeInstanceOf(AppError);
   });
 });
