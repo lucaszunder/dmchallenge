@@ -12,10 +12,13 @@ interface IProducts {
 }
 
 async function main(products) {
-  const newProducts = await prisma.product.createMany({
-    data: products,
-  });
-  console.log({ newProducts });
+  try {
+    await prisma.product.createMany({
+      data: products,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 const csvPath = path.join(__dirname, '..', 'products.csv');
