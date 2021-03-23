@@ -37,7 +37,7 @@ class ProductRepository {
     return product;
   }
 
-  public async decremented(name: string): Promise<Product> {
+  public async decremented(name: string, value = 1): Promise<Product> {
     const product = await prisma.product
       .update({
         where: {

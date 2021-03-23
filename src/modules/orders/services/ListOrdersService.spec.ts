@@ -13,14 +13,4 @@ describe('ListOrders', () => {
     expect(orders[0].total).toBe(11.03)
   });
 
-  it('should raise an error if have no orders', async () => {
-    const fakeOrderRepository = new FakeOrderRepository();
-    const getAllOrders = new ListOrdersService(fakeOrderRepository);
-
-    const orders = await getAllOrders.execute();
-
-    expect(orders.length).toBe(1)
-    expect(orders[0].total).toBe(11.03)
-  });
-
 });
