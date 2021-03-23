@@ -18,7 +18,7 @@ class OrderRepository {
   }
 
   public async create(
-    products: CreateOrderDTO,
+    products: CreateOrderDTO[],
     total: number,
   ): Promise<IOrder> {
     const order = await prisma.order

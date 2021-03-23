@@ -30,12 +30,12 @@ class FakeProductRepository {
     return product;
   }
 
-  public async decremented(name: string): Promise<IProduct | undefined> {
+  public async decremented(name: string, value =  1): Promise<IProduct | undefined> {
     const index = this.products.findIndex(product => product.name === name);
 
     const product = this.products.find(product => product.name === name);
 
-    product.quantity--;
+    product.quantity = product.quantity - value;
 
     this.products.splice(index, 1, product);
 

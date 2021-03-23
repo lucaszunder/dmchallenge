@@ -26,6 +26,7 @@ describe('CreateOrder', () => {
     const newOrder = await createOrder.execute(products);
 
     expect(newOrder.id).toBe(2);
+    expect((await fakeProductRepository.getByName("Fig")).quantity).toBe(1);
   });
 
   it('should raise an error when the when the stock is insufficient', async () => {
